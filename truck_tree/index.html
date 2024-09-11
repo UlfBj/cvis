@@ -9,7 +9,7 @@
 
     <link rel="shortcut icon" href="/hierarchical_information_model/images/fav.png" type="image/x-icon" />
 
-    <title>HIM configurator :: Commercial Vehicle Information Specifications (CVIS)</title>
+    <title>Truck tree :: Commercial Vehicle Information Specifications (CVIS)</title>
 
     
     <link href="/commercial-vehicle-information-specifications/css/nucleus.css?1726051285" rel="stylesheet">
@@ -40,7 +40,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/commercial-vehicle-information-specifications/him_configurator/">
+  <body class="" data-url="/commercial-vehicle-information-specifications/truck_tree/">
     <nav id="sidebar" class="">
 
 
@@ -111,7 +111,7 @@
     
     <li data-nav-id="/commercial-vehicle-information-specifications/him_configurator/" title="HIM configurator" class="dd-item
         
-        active
+        
         
         ">
       <a href="/commercial-vehicle-information-specifications/him_configurator/">
@@ -159,7 +159,7 @@
     
     <li data-nav-id="/commercial-vehicle-information-specifications/truck_tree/" title="Truck tree" class="dd-item
         
-        
+        active
         
         ">
       <a href="/commercial-vehicle-information-specifications/truck_tree/">
@@ -250,7 +250,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/covesa/commercial-vehicle-information-specifications/edit/master/docs/docs-gen/content/him_configurator/_index.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/covesa/commercial-vehicle-information-specifications/edit/master/docs/docs-gen/content/truck_tree/_index.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -275,7 +275,7 @@
             
           
           
-            <a href='/commercial-vehicle-information-specifications/'>Commercial Vehicle Information Specifications</a> > HIM configurator
+            <a href='/commercial-vehicle-information-specifications/'>Commercial Vehicle Information Specifications</a> > Truck tree
           
         
           
@@ -300,54 +300,17 @@
 
 
 
-	<h1 id="him-configurator">HIM configurator</h1>
-<h2 id="build-instructions">Build instructions</h2>
-<p>To build the HIM configurator it is necessary to first instal the Golang build system. Searching on &ldquo;install golang&rdquo; will lead to many matches of which one is:</p>
-<p><a href="https://go.dev/doc/install">https://go.dev/doc/install</a></p>
-<p>To build the HIM configurator, open a trminal and go to the spec/trees directory where the himConfigurator.go is stored, and issue the command</p>
-<p>$ go build -o himConfigurator</p>
-<h2 id="using-the-him-configurator">Using the HIM configurator</h2>
-<p>Starting the HIM configurator with the command:</p>
-<p>$ ./himConfigurator -h
-will show the command line options that is possible to apply at startup.</p>
-<pre tabindex="0"><code>$ ./himConfigurator -h
-usage: print [-h|--help] [-m|--makecommand (all|yaml|json|csv|binary)]
-             [-v|--vspecdir &#34;&lt;value&gt;&#34;] [-c|--saveconf] [-e|--enumSubstitute]
-
-             HIM configurator
-
-Arguments:
-
-  -h  --help            Print help information
-  -m  --makecommand     Make command parameter must be either: all, yaml, csv,
-                        or binary. Default: all
-  -v  --vspecdir        path to vspec root directory. Default:
-                        Vehicle/CargoVehicle/
-  -c  --saveconf        Saves the configured vspec file with extension .conf.
-                        Default: false
-  -e  --enumSubstitute  Substitute enum links to Datatype tree with actual
-                        datatypes. Default: false
-</code></pre><p>The -m command line option is used to set which VSS-tools exporter the configured tree should have.
-The value &lsquo;all&rsquo; leads to that all the exporters that are compatible with the HIM configurator are executed.
-If not used the default is &lsquo;all&rsquo;.</p>
-<p>The -v command line option is used to set the path to the tree that should be used as input for the configuration.
-The path is relative to the tree directory, and should have the slash &lsquo;/&rsquo; character at the end of the path.
-If not used the default is &lsquo;Heavyduty/Tractor/&rsquo;.</p>
-<p>The -c command line option is used to save a copy of the vspec files that are changed during the HIM configurator session.
-These files are saved with their original name post-fixed by &lsquo;.conf&rsquo;.
-If not set these files are deleted after being used as input to the call of the VSS-tools exporter(s).
-If not used the default is false, i. e. not to save the files.</p>
-<p>The -e command line option is used to substitute the external datatype references with the actual enum definitions
-from the common Datatypes tree in the tree(s) that the VSS-tools generate.</p>
-<h2 id="creation-of-a-vehicle-variant-specific-signal-tree">Creation of a vehicle variant specific signal tree</h2>
-<p>The HIM configurator enables a model where a &ldquo;super tree&rdquo; covering all variations of a vehicle archetype
-(like Truck, Trailer, Bus, etc) can be defined in the vspec files,
-then the HIM configurator can be used to create a &ldquo;variant specific&rdquo; vehicle signal tree via the input data in the himConfiguration.json file.</p>
-<h2 id="usage-of-a-vehicle-variant-specific-signal-tree">Usage of a vehicle variant specific signal tree</h2>
-<p>The output from the HIM configurator is the selected parts of the &ldquo;vspec super tree&rdquo; in a file with one of the supported formats.
-This file can then e. g. be used in a vehicle of the selected variant by a server that is controlling the access to the signals.
-The server cn then use the tree to &ldquo;vet&rdquo; client request - checking that the signal is present, whether it is read-only or read-write, etc.
-An example of a server using it like this is the <a href="https://github.com/COVESA/vissr">VISS reference server</a>.</p>
+	<h1 id="the-truck-tree">The truck tree</h1>
+<p>The vspec truck tree is a super tree that contains signal definitions for a large set of different truck models.
+The HIM configurator is then used to create a signal tee for a specific truck variant.</p>
+<p>The different variants that are present in the vspec files are:</p>
+<ul>
+<li>Tow truck: This truck type does not have an integrated cargo unit, but instead it is temporarily connected to a trailer (which defines its own signal tree).</li>
+<li>Flatbed truck: This truck type has an open flat bed cargo unit that is integrated with the rest of the truck.</li>
+<li>Box truck: This truck type has a cargo unit that is covered by walls and a roof that is integrated with the rest of the truck.</li>
+<li>Pickup truck: The model would support pickup trucks to be defined here also&hellip;</li>
+<li>Van: The model would support vans to be defined here also&hellip;</li>
+</ul>
 
 
 
@@ -409,26 +372,6 @@ An example of a server using it like this is the <a href="https://github.com/COV
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
                 
                 
 
@@ -450,6 +393,23 @@ An example of a server using it like this is the <a href="https://github.com/COV
 
                     
                     
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
                         
                     
                     
@@ -459,6 +419,9 @@ An example of a server using it like this is the <a href="https://github.com/COV
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -483,10 +446,10 @@ An example of a server using it like this is the <a href="https://github.com/COV
 	 
 	 
 		
-			<a class="nav nav-prev" href="/commercial-vehicle-information-specifications/bus_tree/" title="Bus tree"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/commercial-vehicle-information-specifications/trailer_tree/" title="Trailer tree"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/commercial-vehicle-information-specifications/trailer_tree/" title="Trailer tree" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/commercial-vehicle-information-specifications/truck_tree/driver_tree/" title="Driver tree" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
