@@ -9,7 +9,7 @@
 
     <link rel="shortcut icon" href="/hierarchical_information_model/images/fav.png" type="image/x-icon" />
 
-    <title>HIM configurator :: Commercial Vehicle Information Specifications (CVIS)</title>
+    <title>Driver tree :: Commercial Vehicle Information Specifications (CVIS)</title>
 
     
     <link href="/commercial-vehicle-information-specifications/css/nucleus.css?1738337805" rel="stylesheet">
@@ -40,7 +40,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/commercial-vehicle-information-specifications/him_configurator/">
+  <body class="" data-url="/commercial-vehicle-information-specifications/driver_tree/">
     <nav id="sidebar" class="">
 
 
@@ -111,7 +111,7 @@
     
     <li data-nav-id="/commercial-vehicle-information-specifications/driver_tree/" title="Driver tree" class="dd-item
         
-        
+        active
         
         ">
       <a href="/commercial-vehicle-information-specifications/driver_tree/">
@@ -135,7 +135,7 @@
     
     <li data-nav-id="/commercial-vehicle-information-specifications/him_configurator/" title="HIM configurator" class="dd-item
         
-        active
+        
         
         ">
       <a href="/commercial-vehicle-information-specifications/him_configurator/">
@@ -274,7 +274,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/covesa/commercial-vehicle-information-specifications/edit/master/docs/docs-gen/content/him_configurator/_index.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/covesa/commercial-vehicle-information-specifications/edit/master/docs/docs-gen/content/driver_tree/_index.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -299,7 +299,7 @@
             
           
           
-            <a href='/commercial-vehicle-information-specifications/'>Commercial Vehicle Information Specifications</a> > HIM configurator
+            <a href='/commercial-vehicle-information-specifications/'>Commercial Vehicle Information Specifications</a> > Driver tree
           
         
           
@@ -324,78 +324,8 @@
 
 
 
-	<h1 id="him-configurator">HIM configurator</h1>
-<h2 id="build-instructions">Build instructions</h2>
-<p>To build the HIM configurator it is necessary to first instal the Golang build system. Searching on &ldquo;install golang&rdquo; will lead to many matches of which one is:</p>
-<p><a href="https://go.dev/doc/install">https://go.dev/doc/install</a></p>
-<p>To build the HIM configurator, open a terminal and go to the spec/trees directory where the himConfigurator.go is stored, and issue the command</p>
-<p>$ go build -o himConfigurator</p>
-<h2 id="initializing-the-python-virtual-environment">Initializing the Python virtual environment</h2>
-<p>The HIM configurator uses the VSS-tools exporters for the generation of the transformed vspec files.
-According to the <a href="https://github.com/COVESA/vss-tools/blob/master/README.md">instructions</a>
-for this tool a Python virtual environment should be set up in which it then is run when exporting the vspec files to other formats.
-The work flow is to the first time initialize this environment, and then every time before running the HIM configurator
-activate the virtual environment, and when done terminate the virtual environment.</p>
-<p>If the virtual environment has not been set up before on the computer, it could e. g. already has been used in a VSS context to transform vspec files,
-then the first time it needs to be created and configured.
-To create it issue the following command:</p>
-<pre tabindex="0"><code>$ python3 -m venv ~/.venv
-</code></pre><p>Then it needs to be configured for VSS-tools, which shall be done with the environment activated:</p>
-<pre tabindex="0"><code>$ source ~/.venv/bin/activate
-(.venv)$ pip install --pre vss-tools
-(.venv)$ deactivate
-</code></pre><p>The above is only needed to be done once.
-It might be necessary to install both python and pip if that is not already installed on the computer.</p>
-<p>To then use the HIM configurator it is sufficient with activating the virtual environment before using the HIM configurator.</p>
-<pre tabindex="0"><code>$ source ~/.venv/bin/activate
-</code></pre><p>Then the HIM configurator can be run in the spec/trees directory with commands like:</p>
-<pre tabindex="0"><code>(.venv)$ ./himConfigurator -m binary -e -v Vehicle/Trailer/
-</code></pre><p>Finally the environment shall be deactivated it after the use.</p>
-<pre tabindex="0"><code>(.venv)$ deactivate
-</code></pre><p>If the HIM configurator complains with error logs it may help to, one time, try the command:</p>
-<pre tabindex="0"><code>(.venv)$ pip install -e .
-</code></pre><h2 id="using-the-him-configurator">Using the HIM configurator</h2>
-<p>Starting the HIM configurator with the command:</p>
-<p>(.venv)$ ./himConfigurator -h</p>
-<p>will show the command line options that is possible to apply at startup.</p>
-<pre tabindex="0"><code>usage: print [-h|--help] [-m|--makecommand (all|yaml|json|csv|binary)]
-             [-v|--vspecdir &#34;&lt;value&gt;&#34;] [-c|--saveconf] [-e|--enumSubstitute]
-
-             HIM configurator
-
-Arguments:
-
-  -h  --help              Print help information
-  -m  --makecommand       Make command parameter must be either: all, yaml, csv,
-                          or binary. Default: all
-  -v  --vspecdir          path to vspec root directory. Default:
-                          Vehicle/CargoVehicle/
-  -c  --saveconf          Saves the configured vspec file with extension .conf.
-                          Default: false
-  -p  --preventEnumSubst  Prevent substitution of enum links to Datatype tree
-                          with actual datatypes
-</code></pre><p>The -m command line option is used to set which VSS-tools exporter the configured tree should have.
-The value &lsquo;all&rsquo; leads to that all the exporters that are compatible with the HIM configurator are executed.
-If not used the default is &lsquo;all&rsquo;.</p>
-<p>The -v command line option is used to set the path to the tree that should be used as input for the configuration.
-The path is relative to the tree directory, and should have the slash &lsquo;/&rsquo; character at the end of the path.
-If not used the default is &lsquo;Heavyduty/Tractor/&rsquo;.</p>
-<p>The -c command line option is used to save a copy of the vspec files that are changed during the HIM configurator session.
-These files are saved with their original name post-fixed by &lsquo;.conf&rsquo;.
-If not set these files are deleted after being used as input to the call of the VSS-tools exporter(s).
-If not used the default is false, i. e. not to save the files.</p>
-<p>The -p command line option is used if substitution is not desired of the external datatype references with the actual enum definitions
-from the common Datatypes tree in the generated tree(s). However, VSS-tools currently does not accept this syntax.</p>
-<h2 id="creation-of-a-vehicle-variant-specific-signal-tree">Creation of a vehicle variant specific signal tree</h2>
-<p>The HIM configurator enables a model where a &ldquo;super tree&rdquo; covering all variations that a vehicle may be equipped with,
-e. g. propulsion technology like ICE, PHEV, EV, etc. can be defined in the vspec files,
-then the HIM configurator can be used to create a &ldquo;variant specific&rdquo; vehicle signal tree from the variation point configuration in the himConfiguration.json file.</p>
-<h2 id="usage-of-a-vehicle-variant-specific-signal-tree">Usage of a vehicle variant specific signal tree</h2>
-<p>The output from the HIM configurator is the selected parts of the &ldquo;vspec super tree&rdquo; in a file with one of the supported formats.
-This file can then e. g. be used in a vehicle of the selected variant by a server that is managing the access to the signals.
-The server can then use the tree to &ldquo;vet&rdquo; client request - checking that the signal is present, whether it is read-only or read-write,
-that credentials are valid if access control is applied, etc.
-An example of a server using it like this is the <a href="https://github.com/COVESA/vissr">VISS reference server</a>.</p>
+	<h1 id="the-driver-tree">The Driver tree</h1>
+<p>The vspec Driver tree &hellip;.</p>
 
 
 
@@ -457,22 +387,6 @@ An example of a server using it like this is the <a href="https://github.com/COV
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                     
                 
                 
@@ -492,6 +406,22 @@ An example of a server using it like this is the <a href="https://github.com/COV
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -547,10 +477,10 @@ An example of a server using it like this is the <a href="https://github.com/COV
 	 
 	 
 		
-			<a class="nav nav-prev" href="/commercial-vehicle-information-specifications/driver_tree/" title="Driver tree"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/commercial-vehicle-information-specifications/bus_tree/" title="Bus tree"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/commercial-vehicle-information-specifications/trailer_tree/" title="Trailer tree" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/commercial-vehicle-information-specifications/him_configurator/" title="HIM configurator" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
