@@ -9,7 +9,7 @@
 
     <link rel="shortcut icon" href="/hierarchical_information_model/images/fav.png" type="image/x-icon" />
 
-    <title>HIM configurator :: Commercial Vehicle Information Specifications (CVIS)</title>
+    <title>Truck and trailer trees used in VISS access scenario :: Commercial Vehicle Information Specifications (CVIS)</title>
 
     
     <link href="/commercial-vehicle-information-specifications/css/nucleus.css?1760615716" rel="stylesheet">
@@ -40,7 +40,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/commercial-vehicle-information-specifications/him_configurator/">
+  <body class="" data-url="/commercial-vehicle-information-specifications/examples/truck_trailer_viss/">
     <nav id="sidebar" class="">
 
 
@@ -134,7 +134,7 @@
   
     
     <li data-nav-id="/commercial-vehicle-information-specifications/examples/" title="Examples" class="dd-item
-        
+        parent
         
         
         ">
@@ -164,7 +164,7 @@
     
     <li data-nav-id="/commercial-vehicle-information-specifications/examples/truck_trailer_viss/" title="Truck and trailer trees used in VISS access scenario" class="dd-item
         
-        
+        active
         
         ">
       <a href="/commercial-vehicle-information-specifications/examples/truck_trailer_viss/">
@@ -197,7 +197,7 @@
     
     <li data-nav-id="/commercial-vehicle-information-specifications/him_configurator/" title="HIM configurator" class="dd-item
         
-        active
+        
         
         ">
       <a href="/commercial-vehicle-information-specifications/him_configurator/">
@@ -360,7 +360,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/covesa/commercial-vehicle-information-specifications/edit/master/docs/docs-gen/content/him_configurator/_index.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/covesa/commercial-vehicle-information-specifications/edit/master/docs/docs-gen/content/examples/truck_trailer_viss/_index.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -385,7 +385,13 @@
             
           
           
-            <a href='/commercial-vehicle-information-specifications/'>Commercial Vehicle Information Specifications</a> > HIM configurator
+            
+            
+          
+          
+            <a href='/commercial-vehicle-information-specifications/'>Commercial Vehicle Information Specifications</a> > <a href='/commercial-vehicle-information-specifications/examples/'>Examples</a> > Truck and trailer trees used in VISS access scenario
+          
+        
           
         
           
@@ -410,109 +416,91 @@
 
 
 
-	<h1 id="him-configurator">HIM configurator</h1>
-<h2 id="build-instructions">Build instructions</h2>
-<p>To build the HIM configurator it is necessary to first instal the Golang build system. Searching on &ldquo;install golang&rdquo; will lead to many matches of which one is:</p>
-<p><a href="https://go.dev/doc/install">https://go.dev/doc/install</a></p>
-<p>To build the HIM configurator, open a terminal and go to the spec/trees directory where the himConfigurator.go is stored, and issue the command</p>
-<p>$ go build -o himConfigurator</p>
-<h2 id="initializing-the-python-virtual-environment">Initializing the Python virtual environment</h2>
-<p>The HIM configurator uses the VSS-tools exporters for the generation of the transformed vspec files.
-According to the <a href="https://github.com/COVESA/vss-tools/blob/master/README.md">instructions</a>
-for this tool a Python virtual environment should be set up in which it then is run when exporting the vspec files to other formats.
-The work flow is to the first time initialize this environment, and then every time before running the HIM configurator
-activate the virtual environment, and when done terminate the virtual environment.</p>
-<p>If the virtual environment has not been set up before on the computer, it could e. g. already has been used in a VSS context to transform vspec files,
-then the first time it needs to be created and configured.
-To create it issue the following command:</p>
-<pre tabindex="0"><code>$ python3 -m venv ~/.venv
-</code></pre><p>Then it needs to be configured for VSS-tools, which shall be done with the environment activated:</p>
-<pre tabindex="0"><code>$ source ~/.venv/bin/activate
-(.venv)$ pip install --pre vss-tools
-(.venv)$ deactivate
-</code></pre><p>The above is only needed to be done once.
-It might be necessary to install both python and pip if that is not already installed on the computer.</p>
-<p>To then use the HIM configurator it is sufficient with activating the virtual environment before using the HIM configurator.</p>
-<pre tabindex="0"><code>$ source ~/.venv/bin/activate
-</code></pre><p>Then the HIM configurator can be run in the spec/trees directory with commands like:</p>
-<pre tabindex="0"><code>(.venv)$ ./himConfigurator -m binary -v Vehicle/Trailer/
-</code></pre><p>Finally the environment shall be deactivated it after the use.</p>
-<pre tabindex="0"><code>(.venv)$ deactivate
-</code></pre><p>If the HIM configurator complains with error logs it may help to, one time, try the command:</p>
-<pre tabindex="0"><code>(.venv)$ pip install -e .
-</code></pre><p>A bash script file in the spec/trees directory, venv.sh, can be used instead of typing the commands manually in the terminal window.
-If this file is issued as shown below it responds with displaying the two supported usages.</p>
-<pre tabindex="0"><code>$ source venv.sh 
-usage: source venv.sh startme|installme
-</code></pre><p>As shown it can either be used to install venv, which as described above is only needed to be run the very first time.
-The other alternative can thereafter be used to activate venv.</p>
-<h2 id="using-the-him-configurator">Using the HIM configurator</h2>
-<p>Starting the HIM configurator with the command:</p>
-<p>(.venv)$ ./himConfigurator -h</p>
-<p>will show the command line options that is possible to apply at startup.</p>
-<pre tabindex="0"><code>usage: print [-h|--help] [-m|--makecommand (all|yaml|json|csv|binary)]
-             [-c|--configfile &#34;&lt;value&gt;&#34;] [-r|--rootdir &#34;&lt;value&gt;&#34;]
-             [-s|--vspecsave] [-p|--preprocess] [-n|--noEnumSubst]
-             [-d|--disableOverlays] [-t|--typefile &#34;&lt;value&gt;&#34;]
-
-             HIM configurator
-
-Arguments:
-
-  -h  --help             Print help information
-  -m  --makecommand      Make command parameter must be either: all, yaml,
-                         json, csv, or binary. Default: yaml
-  -c  --configfile       configuration file name. Default: himConfig-truck.json
-  -r  --rootdir          path to vspec root directory. Default:
-                         Vehicle/VSS-core/
-  -s  --vspecsave        Saves the configured .vspec2 files with extension
-                         .vspec
-  -p  --preprocess       Pre-process only, save configured vspec files. Do not
-                         run VSS-tools.
-  -n  --noEnumSubst      No substitution of enum links to Datatype tree with
-                         actual datatypes
-  -d  --disableOverlays  Disables VSS-tools overlay configurations
-  -t  --typefile         type definition file name
-</code></pre><p>The -m command line option is used to set which VSS-tools exporter the configured tree should have.
-The value &lsquo;all&rsquo; leads to that all the exporters that are compatible with the HIM configurator are executed.
-If not used the default is &lsquo;yaml&rsquo;.</p>
-<p>The -c command line option is used to select the HIM configurator file. This is useful when a tree has multiple configuration files.
-Default is himConfig-truck.json.</p>
-<p>The -r command line option is used to set the path to the tree that should be used as input for the configuration.
-The path is relative to the tree directory, and should have the slash &lsquo;/&rsquo; character at the end of the path.
-If not used the default is &lsquo;Vehicle/VSS-core/&rsquo;.</p>
-<p>If the -s command line option is set the the HIM configurator does not delete the vspec files that it generates from the vspec2 files that are found in the tree structure.
-If not set these vspec files are deleted after being used as input to the call of the VSS-tools exporter(s).
-If not used the default is false, i. e. not to save the files.<br>
-With the vspec files saved it becomes possible to run the VSS-tols exporters &ldquo;manually&rdquo; with the vspec root node as input.
-This might be helpful if the development environment is not a Linux compatible environment,
-or if there is a need to debug the VSS-tools processing, se below.</p>
-<p>The -p command line option leads to that the HIM configurator does not issue a command to the VSS-tools exporters.
-The vspec files generated by the HIM configurator is saved,
-and the VSS-tools exporters can be activated &ldquo;manually&rdquo; with the pre-processed tree as input.</p>
-<p>The -n command line option is used if substitution is not desired of the external datatype references with the actual enum definitions
-from the common Datatypes tree in the generated tree(s). However, VSS-tools currently does not accept the syntax using a reference.</p>
-<p>The -d command line option is used to disable the overlays to be invoked to the VSS-tools exporter.</p>
-<p>The -t command line option is used to include a type definition tree in the CLI to theVSS-tools.
-If the main tree includes a struct then its datatype shall be a path pointing to the struct in the type definition tree.
-VSS-tools then require that the type definition tree is available to verify the path.</p>
-<h2 id="vss-tools-debug">VSS-tools debug</h2>
-<p>&lsquo;in the development of the trees it might happen that errors are introduced in the vspec2/vspec files.
-There is some logging information saved in the spec/trees/exporterData/exporterLog.txt.
-The first line in that file shows the command that is issued to the VSS-tools vspec service.
-This can be copied and then issued manaually in a terminal window,
-in which case the more comprehensive error logging by the VSS-tools exporter will be available.
-However, for it to work the HIM configurator must have saved the vspec files by adding the -p CLI parameter to the HIM configurator command.</p>
-<h2 id="creation-of-a-vehicle-variant-specific-signal-tree">Creation of a vehicle variant specific signal tree</h2>
-<p>The HIM configurator enables a model where a &ldquo;super tree&rdquo; covering all variations that a vehicle may be equipped with,
-e. g. propulsion technology like ICE, PHEV, EV, etc. can be defined in the vspec files,
-then the HIM configurator can be used to create a &ldquo;variant specific&rdquo; vehicle signal tree from the variation point configuration in the himConfiguration.json file.</p>
-<h2 id="usage-of-a-vehicle-variant-specific-signal-tree">Usage of a vehicle variant specific signal tree</h2>
-<p>The output from the HIM configurator is the selected parts of the &ldquo;vspec super tree&rdquo; in a file with one of the supported formats.
-This file can then e. g. be used in a vehicle of the selected variant by a server that is managing the access to the signals.
-The server can then use the tree to &ldquo;vet&rdquo; client request - checking that the signal is present, whether it is read-only or read-write,
-that credentials are valid if access control is applied, etc.
-An example of a server using it like this is the <a href="https://github.com/COVESA/vissr">VISS reference server</a>.</p>
+	<h2 id="creation-of-truck-and-trailer-trees-that-are-used-in-a-client-server-scenario-using-viss-as-the-interface">Creation of truck and trailer trees that are used in a client-server scenario using VISS as the interface</h2>
+<p>The following describes how a demo can be set up in which a client can read and write signals from a truck and a trailer that is connected to it using the VISS interface.<br>
+The two repos that are needed for this are the <a href="https://github.com/COVESA/commercial-vehicle-information-specifications">CVIS</a>
+and the <a href="https://github.com/COVESA/vissr">VISSR</a> repos, so start with cloning these if not done earlier.<br>
+$ git clone <a href="https://github.com/COVESA/commercial-vehicle-information-specifications.git">https://github.com/COVESA/commercial-vehicle-information-specifications.git</a><br>
+$ git clone <a href="https://github.com/COVESA/vissr.git">https://github.com/COVESA/vissr.git</a></p>
+<p>Next step is to use the HIM configurator to create the truck and trailer trees.
+The HIM configurator must then first be built which the following command ,issued in the CVIS/spec/trees directory.<br>
+$ go build -o himConfigurator<br>
+For the above to succeed the Golang build system must have been installed, which is described <a href="https://go.dev/doc/install">here</a>.</p>
+<p>The HIM configurator calls the VSS-tools exporter after its initial preprocessing of vspec2 files.
+To set up the environment required by the VSS-tools exporter the Python virtual environment, venv, must be activated.
+This is done by the following command.<br>
+$ source venv.sh startme<br>
+Venv can when not needed anymore be deactivated by the command:<br>
+(.venv)$ deactivate</p>
+<p>The existing vspec trees that are found in the CVIS/spec/trees/Vehicle/VSS-core2 and CVIS/spec/trees/Vehicle/Trailer1 directories will be used.
+These trees are not yet complete signal reprensentations for trucks and trailers but as it is what we have available at this point let us use them.
+The HIM configurator tool will generate binary format representations of the two trees by invoking it as shown below.<br>
+To generate the trailer tree:<br>
+$ ./himConfigurator -c himConfiguration.json -r Vehicle/Trailer1/ -m binary<br>
+The binary tree is then found in CVIS/spec/trees/exporterData with the file name cvis.binary.
+Rename this file to Trailer1.binary.<br>
+To generate the truck tree:<br>
+$ ./himConfigurator -c himConfig-truck.json -r Vehicle/VSS-core2/ -m binary<br>
+The binary tree is then found in CVIS/spec/trees/exporterData with the file name cvis.binary.
+Rename this file to Truck.binary.</p>
+<p>The binary format is the format that the VISSR server expects the trees to have.
+The directory VISSR/server/vissv2server/forest is the local repository for trees so copy the two files Truck.binary and Trailer1.binary there.
+$ cp  <!-- raw HTML omitted -->/CVIS/spec/trees/exporterData/Truck.binary <!-- raw HTML omitted -->/VISSR/server/vissv2server/forest/Truck.binary<br>
+$ cp  <!-- raw HTML omitted -->/CVIS/spec/trees/exporterData/Trailer1.binary <!-- raw HTML omitted -->/VISSR/server/vissv2server/forest/Trailer1.binary<br>
+<!-- raw HTML omitted --> is to be replaced with the path on your device to the VISSR and CVIS root directories.</p>
+<p>If you for some reason failed in creating the binary trees using the HIM configurator there are copies available in the CVIS/demodata directory.</p>
+<p>For the VISSR server to register the binary trees at startup the file VISSR/server/vissv2server/viss.him must be modified to contain the information for
+these trees. The file CVIS/demodata/viss.him is configured or this, so it can be copied to the VISSR/server/vissv2server directory.
+If you do not want the viss.him file that is in this directory to be overwritten it needs to be renamed before the copy operation.</p>
+<p>To enable a demo where a client can access dynamically changing signal values the feeder needs to be configured for this.
+The feder implementation in vissr/feeder/feeder-template/feederv3 can be started with a CLI parameter &ldquo;-i truck-trailer-sim.json&rdquo;
+where the file truck-trailer-sim.json contains the simulated signal data.
+More about configuring the simulation can be found <a href="https://covesa.github.io/vissr/feeder/#simulated-vehicle-data-sources">here</a>.
+A minimal simulation file truck-trailer-sim.json is available in the CVIS/demodata directory.
+This file can easily be extended with more signals and more samples per signal.
+Copy that file to vissr/feeder/feeder-template/feederv3.</p>
+<p>To start the VISSR server and feeder copy the bash shell file CVIS/demodata/runtrucktrailer.sh to the VISSR directory.
+The command below will then start them using the mentioned simulator input to the feeder.<br>
+$ ./runtrucktrailer.sh startme</p>
+<p>What is needed now is a client that can be used to issue requests for truck or trailer signals to the server.
+Teh VISSR repo has a number of clients in the VISSR/client/client-1.0 directories that can be used,
+either as is or as a code template to be modified.<br>
+The VISSR/client/client-1.0/Javascript/wsclient.html that uses the Websocket protocol can be used directly, by clicking on the file it will open in the browser.
+Start to enter the IP address of the server into the uppermost field and click on the Server IP button.
+If the server has the same IP address as this client then &ldquo;localhost&rdquo; can be written into the field instead.<br>
+Now request messages can be copied into the field below followed by clicking on the Send button and the responses from the server will be shown below in the browser tab.
+Below is shown a few requests that can be used.</p>
+<pre tabindex="0"><code>{&#34;action&#34;:&#34;get&#34;,&#34;path&#34;:&#34;Vehicle.TraveledDistance&#34;,&#34;requestId&#34;:&#34;232&#34;}
+{&#34;action&#34;:&#34;get&#34;,&#34;path&#34;:&#34;Vehicle.CurrentLocation&#34;,&#34;filter&#34;:{&#34;variant&#34;:&#34;paths&#34;,&#34;parameter&#34;:[&#34;Longitude&#34;,&#34;Latitude&#34;]},&#34;requestId&#34;:&#34;237&#34;}
+{&#34;action&#34;:&#34;subscribe&#34;,&#34;path&#34;:&#34;Trailer1.Chassis.Axle.Row1.Wheel.Pos7.Tire.Temperature&#34;,&#34;filter&#34;:{&#34;variant&#34;:&#34;timebased&#34;,&#34;parameter&#34;:{&#34;period&#34;:&#34;1000&#34;}},&#34;requestId&#34;:&#34;246&#34;}
+{&#34;action&#34;:&#34;unsubscribe&#34;,&#34;subscriptionId&#34;:&#34;1&#34;,&#34;requestId&#34;:&#34;240&#34;}
+</code></pre><p>Other websocket request examples can be found in VISSR/client/client-1.0/Javascript/appclient_commands.txt that can be modified to signal paths used in this demo.</p>
+<p>To simulate that one more trailer is towed by the truck the steps below can be followed.<br>
+Issue a command to stop the server and feeder:<br>
+$ ./runtrucktrailer.sh stopme</p>
+<h3 id="add-one-more-trailer-tree">Add one more trailer tree.</h3>
+<p>This can be done by first creating another trailer binary tree using the HIM configurator,
+but a shortcut is possible by using the same binary tree as for the first trailer.
+To do this add the following rows to the viss.him file:</p>
+<pre tabindex="0"><code>HIM.Trailer2:
+  type: direct
+  domain: Automotive.Trailer.Data
+  version: 0.1.0
+  local: forest/Trailer.binary
+  public: https://github.com/COVESA/commercial-vehicle-information-specifications/tree/main/spec/trees/Vehicle/Trailer1
+  description: A tree for the second trailer in the train.
+</code></pre><p>The snippet above can be inserted at the top or at the bottom, or in between any two tree declarations.<br>
+To get back any values from get requests to Trailer2 the truck-trailer-sim.json file needs to be updated with that.<br>
+Then restart the server and feeder:<br>
+$ ./runtrucktrailer.sh startme<br>
+Signal data from the new trailer can now be accessed using requests with paths having Trailer2 as the root node name (the first segment name in the path).</p>
+<p>The VISSR server supports &lsquo;forest inquiry&rsquo; requests as shown below.
+This is not part of the VISSv3.0 spec but may become part of a next version.</p>
+<pre tabindex="0"><code>{&#34;action&#34;:&#34;get&#34;, &#34;path&#34;:&#34;HIM&#34;, &#34;filter&#34;:{&#34;variant&#34;:&#34;metadata&#34;, &#34;parameter&#34;:&#34;0&#34;}, &#34;requestId&#34;:&#34;1957&#34;}
+</code></pre><p>The response will contain the metadata from the viss.him file in JSON format,
+except the &rsquo;local&rsquo; property that is excluded as it is server internal data.</p>
+<p>The browser tab rendered by wsclient.html may look something like below, depending on which requests that have been issued to the server.
+<img src="/commercial-vehicle-information-specifications/images/ws-client-screenshot.png" alt="VISSR tech stack"></p>
 
 
 
@@ -590,6 +578,7 @@ An example of a server using it like this is the <a href="https://github.com/COV
             
                 
                     
+                    
                 
                 
 
@@ -599,25 +588,6 @@ An example of a server using it like this is the <a href="https://github.com/COV
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
                     
                         
             
@@ -636,6 +606,9 @@ An example of a server using it like this is the <a href="https://github.com/COV
             
         
                     
+            
+        
+                    
                         
             
             
@@ -643,6 +616,22 @@ An example of a server using it like this is the <a href="https://github.com/COV
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -714,10 +703,10 @@ An example of a server using it like this is the <a href="https://github.com/COV
 	 
 	 
 		
-			<a class="nav nav-prev" href="/commercial-vehicle-information-specifications/examples/truck_trailer_viss/" title="Truck and trailer trees used in VISS access scenario"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/commercial-vehicle-information-specifications/examples/" title="Examples"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/commercial-vehicle-information-specifications/trailer_tree/" title="Trailer tree" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/commercial-vehicle-information-specifications/him_configurator/" title="HIM configurator" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
