@@ -1,0 +1,341 @@
+,,,,,,,Name/Label,Description,Data Range,Unit
+,,,,,,,Axle/Wheel Position ,This parameter indicates the identification number of the tyre or wheel. The identification number specifies the tyre or wheel position on each axle and the number of axles starting from the front of the respective towed vehicle,"wheel position 1 to 15
+axle position 1 to 15", 
+,,,,,,,VIN,vehicle identification number as specified in ISO 3779 (encoded as a string), , 
+,,,,,,,Truck drive system control support,"indicates if the towing vehicle supports the control of a drive system or retarder installed on the towed vehicle
+
+","NO_DRIVE_SYSTEM_CONTROL
+NEGATIVE_TORQUE_TO_CONTROL_DRIVE_SYSTEM
+POSITIVE_TORQUE_TO_CONTROL_DRIVE_SYSTEM
+BOTH_TORQUE_TO_CONTROL_DRIVE_SYSTEM
+UNKNOWN", 
+,,,,,,,Park brake demand relative pressure,This parameter requests the brake pressure for the parking brake as a percentage of the maximum pressure.,0 - 100 ,Percentage
+,,,,,,,Service brake demand pressure,This parameter requests the brake pressure value of the service brake.,0 - 1 255 ,KiloPascal
+,,,,,,,Vehicle service brake status,This parameter indicates the current status of the vehicle's service brake by observing the brake pressure.,"PASSIVE
+ACTIVE
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,Braking system wheel-based vehicle speed,"This parameter indicates the absolute value of the actual speed of the vehicle (for example, positive values for forward and backward speeds) calculated as the average of the wheel speeds of one axle influenced by slip and filtered by a frequency range of 5 Hz to 20 Hz.",0  - 250 ,KilometerPerHour
+,,,,,,,Vehicle retarder control status,This parameter indicates the current status in all cases the retarder functionality is applied by the driver's demand or by other systems (e.g. brakes).,"PASSIVE
+ACTIVE
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,Retarder demand relative torque,This parameter requests the torque of the retarder as a percentage of the retarder wheel torque reference.,−125 / +125 ,Percentage
+,,,,,,,Axle load sum,This parameter indicates the sum of the static vertical loads of the vehicle axles.,0 - 128 510 ,Kilogramme
+,,,,,,,Pneumatic supply pressure,This parameter indicates the actual pneumatic supply pressure of the reservoir of the braking system.,0 - 1 250,KiloPascal
+,,,,,,,Brake lining,"This parameter indicates the actual relative value of the brake lining of a specific brake. High values indicate new linings, small values indicate worn linings.",0 - 100,Percentage
+,,,,,,,Brake temperature,This parameter indicates the actual temperature of a specific brake.,0 - 2 500 ,Celsius
+,,,,,,,Tyre pressure,This parameter indicates the actual tyre pressure of a specific wheel without any corrections.,0 -  2 500,KiloPascal
+,,,,,,,Tyre module power supply status,This parameter indicates the current status of the power supply of the tyre module. It indicates whether it is sufficient to achieve the specified performance of the module.,"INSUFFICIENT
+SUFFICIENT
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,Automatic towed vehicle braking status,This parameter indicates the current status of the automatic towed vehicle braking. This function is active when the pneumatic supply is insufficient or not connected. This parameter should be used for driver information.,"INACTIVE
+ACTIVE
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,Trailer ABS status,This parameter indicates the current status of the anti-lock braking function or system. The parameter is set active when the ABS starts to modulate the wheel brake pressure and is reset to passive when all wheels are in stable condition for a certain time period. The parameter can also be set active when driven wheels are in high slip (e.g. caused by the retarder).,"PASSIVE
+ACTIVE
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,ASR brake control status,This parameter indicates the current status of the ASR brake control function. ASR active indicates that the ASR function actually controls the wheel brake pressure at one or more wheels of the driven axles and does not indicate “installed” or “enabled”.,"PASSIVE
+ACTIVE
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,ASR engine control status,"This parameter indicates the current status of the ASR engine control function. ASR active indicates that the ASR function tries to control the engine torque and does not indicate “installed” or “enabled”. This status is independent of other control commands influencing the engine torque (e.g. transmission control requests), which can have higher priority.","PASSIVE
+ACTIVE
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,Tire pressure status,"This parameter indicates the current status of the tyre pressure. An insufficient tyre pressure is indicated, if the pressure is outside of a pressure range recommended by the tyre or vehicle manufacturer, to ensure an optimized operation with regard to the fuel consumption of the vehicle and life time of the tyre.","INSUFFICIENT
+SUFFICIENT
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,Brake lining status,This parameter indicates the current status of the brake linings. An insufficient brake lining status is indicated if the linings are worn out.,"INSUFFICIENT
+SUFFICIENT
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,Brake temperature status,This parameter indicates the current status of the temperature of the brakes. A brake temperature out of range value is indicated if the brake temperature is higher than a specific level for proper operation.,"OUT_OF_RANGE
+NORMAL_RANGE
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,Vehicle type (1),This parameter indicates if a vehicle is a converter towed vehicle or a towing or towed vehicle.,"TOWING_OR_TOWED_VEHICLE
+CONVERTER_TOWED_VEHICLE
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,Loading ramp approach assistance status,This parameter indicates whether the loading ramp approach assistance is activated. The loading ramp approach assistance measures the distance to the loading ramp while reversing and applies the vehicle brakes accordingly.,"NOT_ACTIVE
+ACTIVE
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,Wheel speed difference ,"This parameter indicates the difference between the wheel speed on the right side and on the left side of the main axle, (wheel speed right - wheel speed left)",−125 /  125 ,KilometerPerHour
+,,,,,,,vehicle type (2),indicates the type of the vehicle,"SEMI_TOWED_VEHICLE
+CENTER_AXLE_TOWED_VEHICLE
+FULL_TOWED_VEHICLE
+CONVERTER_TOWED_VEHICLE
+LINK_TOWED_VEHICLE
+TOWING_SEMI_TOWED_VEHICLE
+TOWING_CENTER_AXLE_TOWED_VEHICLE
+TOWING_FULL_TOWED_VEHICLE
+", 
+,,,,,,,Parking And Trailer Air Pressure,The pneumatic pressure in the circuit or reservoir for the parking brake and/or the trailer supply.,"0 - 2,000 ",KiloPascal
+,,,,,,,Track Width,distance between the centre of the wheels at the same axle,"0 - 2,50",Meter
+,,,,,,,Axle count,total number of axles,0 to 250,
+,,,,,,,Front Axle count,total number of axles attached to the drawbar,0 to 250, 
+,,,,,,,Lift Axle Count,total number of liftable axles,0 to 250, 
+,,,,,,,Lift Axle Position,"axle position number of lift axle 1 to 5, with axle counting from the front to the rear and starting with 1",0 to 250, 
+,,,,,,,wheel base distance to next axle,distance of the wheel base of axle position x to the next axle position  x+1 ,"0 - 25,0 ",Meter
+,,,,,,,vehicle length,total length of vehicle,"0 - 25,0 ",Meter
+,,,,,,,Towed vehicle ROP system request,This parameter requests to enable or disable the towed vehicle ROP system.,"DISABLE
+ENABLE
+NOT_AVAILABLE", 
+,,,,,,,Towed vehicle YC system request,This parameter requests to enable or disable the towed vehicle YC system.,"DISABLE
+ENABLE
+NOT_AVAILABLE", 
+,,,,,,,Towed vehicle detection status,"This parameter is provided by any towed vehicle and indicates:
+— if that vehicle is able to detect an additional towed vehicle (towed vehicle detection support);
+— if an additional towed vehicle is detected (parameter “vehicle status”); and
+— which type of brake system is detected in that vehicle (parameter “brake system type”).","NO_BRAKE_SYSTEM
+ABS_DETECTED
+EBS_DETECTED
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,Driven axle load,"This parameter indicates the current static vertical load on the driven axle of a vehicle. In case the vehicle is equipped with more than one driven axle, the value of the axle with the highest vertical load is transmitted.",0 - 128 510 ,Kilogramme
+,,,,,,,Lift axle 1 position,This parameter indicates the position of the lift axle 1 or the load condition of the first tag axle. The numbering of the lift axles starts from the front axle position.,"DOWN
+UP
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,Lift axle 2 position,This parameter indicates the position of the lift axle 2 or the load condition of the second tag axle. The numbering of the lift axles starts from the front axle position.,"DOWN
+UP
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,Lift axle 3 position,This parameter indicates the position of the lift axle 3 or the load condition of the third tag axle. The numbering of the lift axles starts from the front axle position.,"DOWN
+UP
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,Lift axle 4 position,This parameter indicates the position of the lift axle 4 or the load condition of the fourth tag axle. The numbering of lift axles starts from the front axle position.,"DOWN
+UP
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,Lift axle 5 position,This parameter indicates the position of the lift axle 5 or the load condition of the fifth tag axle. The numbering of the lift axles starts from the front axle position.,"DOWN
+UP
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,Steering axle locking status,This parameter indicates the current steering axle locking status.,"UNLOCKED
+LOCKED
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,Parking and towed vehicle air pressure,This parameter indicates the current pneumatic pressure on the circuit or reservoir for the parking brake and the towed vehicle supply.,0 -2 000 ,KiloPascal
+,,,,,,,Tire pressure threshold detection,This parameter indicates the pressure level of one specific tyre. This parameter is used in conjunction with the tyre/wheel identification.,"EXTREME_OVER_PRESSURE
+OVER_PRESSURE
+NO_WARNING
+UNDER_PRESSURE
+EXTREME_UNDER_PRESSURE
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,Air leakage detection,This parameter indicates the current air leakage (pressure loss) of a tyre. This parameter is used in conjunction with the tyre/wheel identification.,"0 - 6 425,5 ",PascalPerSecond
+,,,,,,,Tire temperature,This parameter indicates the current temperature of a tyre. This parameter is used in conjunction with the tyre/wheel identification.,−273 / 1 735,Celsius
+,,,,,,,Axle load,This parameter indicates the static vertical load of a vehicle axle identified by a tyre/wheel identification,"0 -  32 127,5 ",Kilogramme
+,,,,,,,Maximum driven axle load,This parameter indicates the maximum allowed static vertical load on the driven axle of a vehicle. In case of the vehicle is equipped with more than one driven axle the value of the axle with the highest vertical load is transmitted.,0 - 128 510 ,Kilogramme
+,,,,,,,Fifth wheel load,This parameter indicates the fifth wheel load of a vehicle.,0 - 128 510,Kilogramme
+,,,,,,,Ambient air temperature,This parameter indicates the ambient air temperature.,-273 to 1734.96875 °C,Celsius
+,,,,,,,Parking brake status,This parameter indicates the current status of the parking brake. The purpose of this signal is to indicate to the towed vehicle that the parking brake in the towing vehicle is applied.,"PASSIVE
+ACTIVE
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,axle load measured by towed vehicle,"This parameter indicates the static vertical load, measured by the towed vehicle at the time of the axle load calibration, of one or several vehicle axles identified by the tyre/wheel identification and axle load calibration data storage request.",0 - 64 255 ,Kilogramme
+,,,,,,,axle load measured by external scale,"This parameter indicates the static vertical load, measured by an external scale at the time of the axle load calibration, of one or several vehicle axles identified by the tyre/wheel identification and axle load calibration data storage request.",0 - 64 255,Kilogramme
+,,,,,,,axle load calibration data load level,"This parameter indicates the load case the calibration data belongs to. Each axle can be calibrated at one out of the three levels: heavy, medium and light load.","LOW_LOAD
+HEAVY_LOAD
+MEDIUM_LOAD
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,distance between the coupling point and the middle of the first axle,distance between the coupling point and the middle of the first axle,"0 - 25,0 ",Meter
+,,,,,,,nominal coupling height over ground for the first coupling point h1,nominal coupling height over ground for the first coupling point h1,"0 - 5,00 ",Meter
+,,,,,,,nominal coupling height over ground for the second coupling point h2 for an unloaded vehicle;,nominal coupling height over ground for the second coupling point h2 for an unloaded vehicle; this data is dynamic and indicates the current coupling point height,"0 - 5,00 ",Meter
+,,,,,,,height from the bottom most point of the chassis to the top most point of the vehicle at the front of the vehicle,height from the bottom most point of the chassis to the top most point of the vehicle at the front of the vehicle,"0 - 5,00 ",Meter
+,,,,,,,Amber warning signal,"This signal shall command the request from a towed vehicle to the commercial vehicle to activate the amber warning signal, which indicates certain specified events within the braking equipment of the towed vehicle. A flashing warning signal can be used to signal fault conditions that are related to nonbraking systems, e.g. auxiliary equipment. It shall not be used to signal braking system-relevant faults or status.","OFF
+ON
+NOT_AVAILABLE", 
+,,,,,,,Red warning signal,"This parameter requests the towing vehicle to activate the red warning signal, which indicates certain specified failures within the braking equipment of the towed vehicle.","OFF
+ON
+NOT_AVAILABLE", 
+,,,,,,,Electrical supply of non-braking systems status,This parameter indicates the current status of the supply voltage of non-braking systems.,"OFF
+ON
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,Vehicle electrical supply status,"This parameter indicates, if the current status of the supply voltage is sufficient or insufficient for a proper braking function. This also includes overvoltage conditions.","INSUFFICIENT
+SUFFICIENT
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,Lateral acceleration,This parameter indicates the actual lateral acceleration of the vehicle. A positive lateral acceleration value is used when the vehicle is accelerated to the left.,"−12,5  /  12,5 ",MeterPerSquareMeter
+,,,,,,,"Level change status, front axle",This parameter indicates the current status of the level change of the body height at the front axle due to any external control request.,"NOT_ACTIVE
+ACTIVE
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,"Level change status, rear axle",This parameter indicates the current status of the level change of the body height at the rear axle due to any external control request.,"NOT_ACTIVE
+ACTIVE
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,Level control status,This parameter indicates the current status of the level control function,"DISABLED
+ENABLED
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,Loading ramp approach assistance status,This parameter indicates whether the loading ramp approach assistance is activated. The loading ramp approach assistance measures the distance to the loading ramp while reversing and applies the vehicle brakes accordingly.,"NOT_ACTIVE
+ACTIVE
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,"Nominal vehicle body level, front axle","This parameter indicates the current nominal vehicle body height. In cases when controlled by “level change request, front axle” (see 6.4.8), this value represents the current vehicle body height at the front axle referred to ground level.",0 -  64 255 ,Milimeter
+,,,,,,,"Nominal vehicle body level, rear axle","This parameter indicates the current nominal vehicle body height. In cases when controlled by “level change request, rear axle”",0 -  64 255 ,Milimeter
+,,,,,,,Normal level,This parameter indicates the current state of the body height normal positions independent of a specific level request.,"NORMAL_LEVEL_1
+NORMAL_LEVEL_2
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,Ride height level,This parameter indicates the current body height position status of the vehicle as a response to the ride height request.,"NOT_REQUESTED
+REQUESTED
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,Vehicle pneumatic supply status,This parameter indicates if the current status of the pneumatic supply pressure of the reservoir of the braking system is insufficient or sufficient for a proper braking function.,"INSUFFICIENT
+SUFFICIENT
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,ROP system status,This parameter indicates whether the ROP system is currently enabled or disabled.,"DISABLED
+ENABLED
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,"total height over ground of the vehicle at the rear of the vehicle, this refers to the rear end of the cargo put directly on the vehicle; this data is dynamic and indicates the current rear total height","total height over ground of the vehicle at the rear of the vehicle, this refers to the rear end of the cargo put directly on the vehicle; this data is dynamic and indicates the current rear total height","0 -5,00 ",Meter
+,,,,,,,total height over ground at the front of the vehicle,total height over ground at the front of the vehicle,"0 - 5,00 ",Meter
+,,,,,,,YC system status,This parameter indicates whether the YC system is currently enabled or disabled.,"DISABLED
+ENABLED
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,Traction help (load transfer) status,This parameter indicates the current status of the traction help function.,"INACTIVE
+ACTIVE
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,height over ground for the floor inside the vehicle at the front end of the floor,height over ground for the floor inside the vehicle at the front end of the floor,"0 - 5,00 ",Meter
+,,,,,,,Cargo hold temperature 1,"This parameter indicates the value of the cargo hold temperature 1 measured by the
+temperature recorder.",-40 °C to +40 °C,Celsius
+,,,,,,,Cargo hold temperature 2,"This parameter indicates the value of the cargo hold temperature 2 measured by the
+temperature recorder.",-40 °C to +40 °C,Celsius
+,,,,,,,Cargo hold temperature 3,"This parameter indicates the value of the cargo hold temperature 3 measured by the
+temperature recorder.",-40 °C to +40 °C,Celsius
+,,,,,,,Cargo hold temperature 4,"This parameter indicates the value of the cargo hold temperature 4 measured by the
+temperature recorder.",-40 °C to +40 °C,Celsius
+,,,,,,,Cargo hold temperature 5,"This parameter indicates the value of the cargo hold temperature 5 measured by the
+temperature recorder.",-40 °C to +40 °C,Celsius
+,,,,,,,Cargo hold temperature 6,"This parameter indicates the value of the cargo hold temperature 6 measured by the
+temperature recorder.",-40 °C to +40 °C,Celsius
+,,,,,,,Reefer unit battery voltage,This parameter indicates the value of the reefer unit battery voltage.,"0 - 642,55 ",Volt
+,,,,,,,Reefer unit fuel tank level,This parameter indicates the value of the reefer unit fuel tank level.,0 - 125 ,Percentage
+,,,,,,,Reefer unit alarm status,This parameter indicates the reefer unit alarm status.,"WARNING_OFF
+WARNING_ON
+SHUTDOWN_ALARM_ON", 
+,,,,,,,Status evaporator 1,This parameter indicates the status evaporator 1.,"STANDBY
+COOLING
+HEATING
+DEFROST", 
+,,,,,,,Status evaporator 2,This parameter indicates the status evaporator 2,"STANDBY
+COOLING
+HEATING
+DEFROST", 
+,,,,,,,Status evaporator 3,This parameter indicates the status evaporator 3,"STANDBY
+COOLING
+HEATING
+DEFROST", 
+,,,,,,,Reefer unit status,This parameter indicates the reefer unit status.,"OFF
+ON", 
+,,,,,,,Reefer unit start/stop operating hours,This parameter indicates the total number of hours the reefer unit start/stop operating hours mode is in.,0 to 16 449 535 ,Hour
+,,,,,,,Reefer unit diesel engine propulsion system operating hours,This parameter indicates the total number of hours of the reefer unit diesel engine propulsion system operating mode.,0 to 16 449 535 ,Hour
+,,,,,,,Reefer unit line supply operating hours,This parameter indicates the total number of hours of the reefer unit line supply operating mode.,0 to 16 449 535 ,Hour
+,,,,,,,Reefer unit generator operating hours,This parameter indicates the total number of hours of the reefer unit generator operating mode.,0 to 16 449 535 ,Hour
+,,,,,,,Reefer unit defrost cycle on/off,This parameter indicates the on/off status of the reefer unit defrost cycle.,"OFF
+ON", 
+,,,,,,,Cargo hold door 1 contact switch,This parameter indicates the closed/open status of the cargo hold door 1 contact switch.,"CLOSED
+OPEN", 
+,,,,,,,Cargo hold door 2 contact switch,This parameter indicates the closed/open status of the cargo hold door 2 contact switch.,"CLOSED
+OPEN", 
+,,,,,,,Cargo hold door 3 contact switch,This parameter indicates the closed/open status of the cargo hold door 3 contact switch.,"CLOSED
+OPEN", 
+,,,,,,,Compartment 1 humidity,This parameter indicates the value of the compartment 1 humidity.,0 - 125 ,Percentage
+,,,,,,,Compartment 2 humidity,This parameter indicates the value of the compartment 2 humidity.,0 - 125 ,Percentage
+,,,,,,,Compartment 3 humidity,This parameter indicates the value of the compartment 3 humidity.,0 - 125 ,Percentage
+,,,,,,,Compartment 1 oxygen concentration,This parameter indicates the value of the compartment 1 oxygen concentration.,0 - 125 ,Percentage
+,,,,,,,Compartment 2 oxygen concentration,This parameter indicates the value of the compartment 2 oxygen concentration.,0 - 125 ,Percentage
+,,,,,,,Compartment 3 oxygen concentration,This parameter indicates the value of the compartment 3 oxygen concentration.,0 - 125 ,Percentage
+,,,,,,,BAU type,"This parameter assigned by the manufacturer indicates the main function of the BAU. Table 13 specifies the
+parameter attributes.","LIFTING_UNIT
+HEATING_REFRIGERATING_UNIT
+REFUSE_COLLECTION_UNIT
+CONTAINER_UNIT
+TIPPER_UNIT
+FIRE_FIGHTING_UNIT", 
+,,,,,,,Next maintenance day,This parameter provides the day of the next maintenance date information. ,1 _ 31, 
+,,,,,,,Next maintenance month,This parameter provides the month of the next maintenance date information.,January to December, 
+,,,,,,,Next maintenance year,This parameter provides the year of the next maintenance date information.,1985 _ 2235,
+,,,,,,,Lifting unit categories,"LUs include any kind of BAUs or BAU sub-parts with the capability to hoist goods, material, etc","VEHICLE_MOUNTED_CRANE_UNIT
+TAIL_LIFT_UNIT", 
+,,,,,,,Tail-lift unit ,"The TLU comprises a mechanical device permanently installed on the rear of a commercial vehicle. It is
+designed to facilitate the materials handling of goods from ground level or a loading dock to the level of the
+vehicle bed, or vice versa.","PARALLEL_ARM_LIFT
+RAILGATE_LIFT
+COLUMN_LIFT
+CANTILEVER_LIFT
+TUK_UNDER_LIFT
+SLIDER_SINGLE_FOLDED_LIFT
+SLIDER_DOUBLE_FOLDER_LIFT
+PASSENGER_LIFT_ROAD_VEHICLE
+PASSENGER_LIFT_TRAIN
+", 
+,,,,,,,Tail-lift position status,specifies the position status of tail-lifts,"UNKNOWN_POSITION
+DRIVING_POSITION
+WORKING_POSITION
+PLATFORM_CLOSED
+PLATFORM_OPEN
+FLOOR_BED_HEIGHT
+GROUND
+BETWEEN_FLOOR_BED_HEIGHT_AND_GROUND
+STOWED_POSITION
+WORKING_POSITION
+HORIZONTAL_POSITION_1
+HORIZONTAL_POSITION_2
+HORIZONTAL_POSITION_3
+MOVEABLE_REAR_UNDERRUN_PROTECTION_DEVICE_POSITION_TRUCK
+MOVEABLE_REAR_UNDERRUN_PROTECTION_DEVICE_POSITION_TRUCK_TRAILER
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,Heating and refrigerating unit  classes,"HRUs control the temperature of the truck’s, semitrailer’s, or trailer’s cargo space. In case of vehicles
+transporting containers with embedded HRUs, the HRUs are connected temporarily.","GENERIC
+CARGO_SPACE_SINGLE_TEMPERATURE
+CARGO_SPACE_MULTI_TEMPERATURE
+CONTAINER_SPACE_SINGLE_TEMPERATURE
+CONTAINER_SPACE_MULTI_TEMPERATURE", 
+,,,,,,,HRU compartment number,This parameter provides the sources of the measured parameters by means of the HRU compartment number,0 to 15, 
+,,,,,,,HRU temperature setpoint command,This parameter provides the temperature setpoint for HRU compartments,-273 to 1734.96875 °C,Celsius
+,,,,,,,HRU return air temperature,This parameter provides the return air temperature measured at evaporator input.,-273 to 1734.96875 °C,Celsius
+,,,,,,,HRU supply air temperature,This parameter provides the supply air temperature measured at evaporator output,-273 to 1734.96875 °C,Celsius
+,,,,,,,HRU evaporator temperature,This parameter provides the temperature of the evaporator.,-273 to 1734.96875 °C,Celsius
+,,,,,,,HRU ambient temperature,This parameter provides the ambient temperature measured by the HRU.,-273 to 1734.96875 °C,Celsius
+,,,,,,,HRU status,This parameter provides the status of the HRU. It includes the operating status.,"OFF
+COOLING
+HEATING
+DEFROSTING
+WAITING
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,HRU battery voltage,This parameter provides the voltage of the HRU battery,0.1 -  6553.5,Volt
+,,,,,,,HRU diesel operating hours,This parameter provides the HRU operating hours powered by the diesel engine.,0 to 4294967295,Hour
+,,,,,,,HRU electrical operating hours,This parameter provides the HRU operating hours powered electrically,0 to 4294967295,Hour
+,,,,,,,HRU total operating hours,This parameter provides the HRU total operating hours,0 to 4294967295,Hour
+,,,,,,,HRU Number of available compartments,This parameter provides the functionality and the operating mode status of the HRU.,0 to 8, 
+,,,,,,,HRU Power supply (ps),This parameter provides the functionality and the operating mode status of the HRU.,"DIESEL_ENGINE_POWERED
+POWER_GRID_POWERED
+BATTERY_POWERED
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,HRU Economy mode (em),This parameter provides the functionality and the operating mode status of the HRU.,"OFF
+ON
+ERROR
+NOT_AVAILABLE", 
+,,,,,,,HRU Start/stop mode,This parameter provides the functionality and the operating mode status of the HRU.,"OFF
+ON
+ERROR
+NOT_AVAILABLE", 
