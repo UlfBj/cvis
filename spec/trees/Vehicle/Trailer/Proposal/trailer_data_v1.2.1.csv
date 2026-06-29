@@ -1,7 +1,7 @@
 ;;Issue;Datatype;Type;Group;Path;Name/Label;Description;Data Range;Unit
 ;;;N/A;Branch;Chassis;Trailer.Chassis.Axle.PosX;Axle Position;This parameter indicates the identification number  x of an axle. The identification number X starts with one from the front of the respective towed vehicle;axle position X = [1 to 15]; 
-;;;N/A;Branch;Chassis;Trailer.Chassis.Axle.PosX.Wheel.PosY;Wheel Position ;This parameter indicates the identification number  Y of the tyre or wheel on axle X. The identification number Y starts with one from the left side of the respective towed vehicle;"axle position X
-wheel position Y = [1 to 15]"; 
+;;;N/A;Branch;Chassis;Trailer.Chassis.Axle.PosX.Wheel.PosY;Wheel Position ;This parameter indicates the identification number  Y of the tyre or wheel on axle X. The identification number Y starts with one from the left side of the respective towed vehicle;'axle position X
+wheel position Y = [1 to 15]'; 
 ;;;string;Attribute;Specification;Trailer.Specification.VIN;VIN;vehicle identification number as specified in ISO 3779 (encoded as a string); ; 
 ;;;float;Sensor;Chassis;Trailer.Chassis.Brake.ParkingBrake.Pressure;Park brake demand relative pressure;This parameter requests the brake pressure for the parking brake as a percentage of the maximum pressure.;0 - 100 ;Percentage
 ;;;float;Sensor;Chassis;Trailer.Chassis.Brake.ServiceBrake1.Pressure;Service brake demand pressure;This parameter requests the brake pressure value of the service brake.;0 - 1 255 ;KiloPascal
