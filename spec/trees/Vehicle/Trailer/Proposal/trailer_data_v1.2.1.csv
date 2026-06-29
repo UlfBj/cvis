@@ -6,49 +6,22 @@ wheel position Y = [1 to 15]';
 ;;;float;Sensor;Chassis;Trailer.Chassis.Brake.ParkingBrake.Pressure;Park brake demand relative pressure;This parameter requests the brake pressure for the parking brake as a percentage of the maximum pressure.;0 - 100 ;Percentage
 ;;;float;Sensor;Chassis;Trailer.Chassis.Brake.ServiceBrake1.Pressure;Service brake demand pressure;This parameter requests the brake pressure value of the service brake.;0 - 1 255 ;KiloPascal
 ;;;float;Sensor;Chassis;Trailer.Chassis.Brake.ServiceBrake2.Pressure;Service brake demand pressure;This parameter requests the brake pressure value of the service brake.;0 - 1 255 ;KiloPascal
-;;;enum;Sensor;Powertrain;Trailer.Chassis.Brake.ServiceBrake.Status;Vehicle service brake status;This parameter indicates the current status of the vehicle's service brake by observing the brake pressure.;'PASSIVE
-ACTIVE
-ERROR
-NOT_AVAILABLE'; 
+;;;enum;Sensor;Powertrain;Trailer.Chassis.Brake.ServiceBrake.Status;Vehicle service brake status;This parameter indicates the current status of the vehicle's service brake by observing the brake pressure.;'PASSIVE, ACTIVE, ERROR, NOT_AVAILABLE'; 
 ;;;float;Sensor;Chassis;Trailer.Chassis.Axle.PosX.Speed;Braking system wheel-based vehicle speed;This parameter indicates the absolute value of the actual speed of the vehicle (for example, positive values for forward and backward speeds) calculated as the average of the wheel speeds of one axle influenced by slip and filtered by a frequency range of 5 Hz to 20 Hz.;0  - 250 ;KilometerPerHour
-;;;enum;Attribute;Powertrain;Trailer.Chassis.Retarder.Status;Vehicle retarder control status;This parameter indicates the current status in all cases the retarder functionality is applied by the driver's demand or by other systems (e.g. brakes).;'PASSIVE
-ACTIVE
-ERROR
-NOT_AVAILABLE'; 
+;;;enum;Attribute;Powertrain;Trailer.Chassis.Retarder.Status;Vehicle retarder control status;This parameter indicates the current status in all cases the retarder functionality is applied by the driver's demand or by other systems (e.g. brakes).;'PASSIVE, ACTIVE, ERROR, NOT_AVAILABLE'; 
 ;;;float;Sensor;Chassis;Trailer.Chassis.Retarder.Torque;Retarder demand relative torque;This parameter requests the torque of the retarder as a percentage of the retarder wheel torque reference.;−125 / +125 ;Percentage
 ;;;int32;Sensor;Chassis;Trailer.Chassis.Axle.LoadSum;Axle load sum;This parameter indicates the sum of the static vertical loads of the vehicle axles.;0 - 128 510 ;Kilogramme
 ;;;float;Sensor;Chassis;Trailer.Chassis.Brake.AirSupply.Pressure;Pneumatic supply pressure;This parameter indicates the actual pneumatic supply pressure of the reservoir of the braking system.;0 - 1 250;KiloPascal
 ;;;float;Sensor;Chassis;Trailer.Chassis.Axle.PosX.Wheel.PosY.Brake.Lining;Brake lining;This parameter indicates the actual relative value of the brake lining of a specific brake. High values indicate new linings, small values indicate worn linings.;0 - 100;Percentage
 ;;;uint16;Sensor;Chassis;Trailer.Chassis.Axle.PosX.Wheel.PosY.Brake.Temperature;Brake temperature;This parameter indicates the actual temperature of a specific brake.;0 - 2 500 ;Celsius
 ;;;uint16;Sensor;Chassis;Trailer.Chassis.Axle.PosX.Wheel.PosY.Tyre.Pressure;Tyre pressure;This parameter indicates the actual tyre pressure of a specific wheel without any corrections.;0 -  2 500;KiloPascal
-;;;enum;Sensor;Chassis;Trailer.Chassis.Axle.PosX.Wheel.PosY.Tyre.PowerStatus;Tyre module power supply status;This parameter indicates the current status of the power supply of the tyre module. It indicates whether it is sufficient to achieve the specified performance of the module.;'INSUFFICIENT
-SUFFICIENT
-ERROR
-NOT_AVAILABLE'; 
-;;;enum;Sensor;Chassis;Trailer.Chassis.Brake.AutomaticBrakeStatus;Automatic towed vehicle braking status;This parameter indicates the current status of the automatic towed vehicle braking. This function is active when the pneumatic supply is insufficient or not connected. This parameter should be used for driver information.;'INACTIVE
-ACTIVE
-ERROR
-NOT_AVAILABLE'; 
-;;;enum;Sensor;Chassis;Trailer.Chassis.Brake.ABS.Status;Trailer ABS status;This parameter indicates the current status of the anti-lock braking function or system. The parameter is set active when the ABS starts to modulate the wheel brake pressure and is reset to passive when all wheels are in stable condition for a certain time period. The parameter can also be set active when driven wheels are in high slip (e.g. caused by the retarder).;'PASSIVE
-ACTIVE
-ERROR
-NOT_AVAILABLE'; 
-;;;enum;Sensor;Chassis;Trailer.Chassis.Axle.PosX.Wheel.PosY.Tyre.PressureStatus;Tire pressure status;This parameter indicates the current status of the tyre pressure. An insufficient tyre pressure is indicated, if the pressure is outside of a pressure range recommended by the tyre or vehicle manufacturer, to ensure an optimized operation with regard to the fuel consumption of the vehicle and life time of the tyre.;'INSUFFICIENT
-SUFFICIENT
-ERROR
-NOT_AVAILABLE'; 
-;;;enum;Sensor;Chassis;Trailer.Chassis.Axle.PosX.Wheel.PosY.Brake.LiningStatus;Brake lining status;This parameter indicates the current status of the brake linings. An insufficient brake lining status is indicated if the linings are worn out.;'INSUFFICIENT
-SUFFICIENT
-ERROR
-NOT_AVAILABLE'; 
-;;;enum;Sensor;Chassis;Trailer.Chassis.Axle.PosX.Wheel.PosY.Brake.TemperatureStatus;Brake temperature status;This parameter indicates the current status of the temperature of the brakes. A brake temperature out of range value is indicated if the brake temperature is higher than a specific level for proper operation.;'OUT_OF_RANGE
-NORMAL_RANGE
-ERROR
-NOT_AVAILABLE'; 
-;;;enum;Attribute;Chassis;Trailer.Chassis.Brake.LoadingRampAssistance.Status;Loading ramp approach assistance status;This parameter indicates whether the loading ramp approach assistance is activated. The loading ramp approach assistance measures the distance to the loading ramp while reversing and applies the vehicle brakes accordingly.;'NOT_ACTIVE
-ACTIVE
-ERROR
-NOT_AVAILABLE'; 
+;;;enum;Sensor;Chassis;Trailer.Chassis.Axle.PosX.Wheel.PosY.Tyre.PowerStatus;Tyre module power supply status;This parameter indicates the current status of the power supply of the tyre module. It indicates whether it is sufficient to achieve the specified performance of the module.;'INSUFFICIENT, SUFFICIENT, ERROR, NOT_AVAILABLE'; 
+;;;enum;Sensor;Chassis;Trailer.Chassis.Brake.AutomaticBrakeStatus;Automatic towed vehicle braking status;This parameter indicates the current status of the automatic towed vehicle braking. This function is active when the pneumatic supply is insufficient or not connected. This parameter should be used for driver information.;'INACTIVE, ACTIVE, ERROR, NOT_AVAILABLE'; 
+;;;enum;Sensor;Chassis;Trailer.Chassis.Brake.ABS.Status;Trailer ABS status;This parameter indicates the current status of the anti-lock braking function or system. The parameter is set active when the ABS starts to modulate the wheel brake pressure and is reset to passive when all wheels are in stable condition for a certain time period. The parameter can also be set active when driven wheels are in high slip (e.g. caused by the retarder).;'PASSIVE, ACTIVE, ERROR, NOT_AVAILABLE'; 
+;;;enum;Sensor;Chassis;Trailer.Chassis.Axle.PosX.Wheel.PosY.Tyre.PressureStatus;Tire pressure status;This parameter indicates the current status of the tyre pressure. An insufficient tyre pressure is indicated, if the pressure is outside of a pressure range recommended by the tyre or vehicle manufacturer, to ensure an optimized operation with regard to the fuel consumption of the vehicle and life time of the tyre.;'INSUFFICIENT, SUFFICIENT, ERROR, NOT_AVAILABLE'; 
+;;;enum;Sensor;Chassis;Trailer.Chassis.Axle.PosX.Wheel.PosY.Brake.LiningStatus;Brake lining status;This parameter indicates the current status of the brake linings. An insufficient brake lining status is indicated if the linings are worn out.;'INSUFFICIENT, SUFFICIENT, ERROR, NOT_AVAILABLE'; 
+;;;enum;Sensor;Chassis;Trailer.Chassis.Axle.PosX.Wheel.PosY.Brake.TemperatureStatus;Brake temperature status;This parameter indicates the current status of the temperature of the brakes. A brake temperature out of range value is indicated if the brake temperature is higher than a specific level for proper operation.;'OUT_OF_RANGE, NORMAL_RANGE, ERROR, NOT_AVAILABLE'; 
+;;;enum;Attribute;Chassis;Trailer.Chassis.Brake.LoadingRampAssistance.Status;Loading ramp approach assistance status;This parameter indicates whether the loading ramp approach assistance is activated. The loading ramp approach assistance measures the distance to the loading ramp while reversing and applies the vehicle brakes accordingly.;'NOT_ACTIVE, ACTIVE, ERROR, NOT_AVAILABLE'; 
 ;;;float;Sensor;Chassis;Trailer.Chassis.Axle.PosX.SpeedDiff;Wheel speed difference ;This parameter indicates the difference between the wheel speed on the right side and on the left side of the main axle, (wheel speed right - wheel speed left);−125 /  125 ;KilometerPerHour
 ;;;float;Sensor;Chassis;Trailer.Chassis.Brake.Pressure;Parking And Trailer Air Pressure;The pneumatic pressure in the circuit or reservoir for the parking brake and/or the trailer supply.;0 - 2,000 ;KiloPascal
 ;;;float;Attribute;Chassis;Trailer.Chassis.Axle.PosX.TrackWidth;Track Width;distance between the centre of the wheels at the same axle;0 - 2,50;Meter
@@ -57,28 +30,14 @@ NOT_AVAILABLE';
 ;;;int[5];Attribute;Chassis;Trailer.Chassis.Axle.Liftable.AxleConfig;Lift Axle Position;axle position number of lift axle 1 to 5, with axle counting from the front to the rear and starting with 1. Realized as an array of five elements with axle positions (1-15).The array shouild be sorted with its first element being the first position from the front, second being second from the front, etc. If not sorted then each axle shall have a data entry indicating its position.;0 to 250; 
 ;;;float;Attribute;Chassis;Trailer.Chassis.Axle.PosX.NextDistance;wheel base distance to next axle;distance of the wheel base of axle position x to the next axle position  x+1 ;0 - 25,0 ;Meter
 ;;;float;Attribute;Specification;Trailer.Specification.TotalLength;vehicle length;total length of vehicle;0 - 25,0 ;Meter
-;;;enum;Sensor;Chassis;Trailer.Chassis.Brake.ROP.Status;Towed vehicle ROP system request;This parameter requests to enable or disable the towed vehicle ROP system.;'DISABLE
-ENABLE
-NOT_AVAILABLE'; 
-;;;enum;Sensor;Chassis;Trailer.Chassis.Brake.YawControl.Status;Towed vehicle YC system request;This parameter requests to enable or disable the towed vehicle YC system.;'DISABLE
-ENABLE
-NOT_AVAILABLE'; 
+;;;enum;Sensor;Chassis;Trailer.Chassis.Brake.ROP.Status;Towed vehicle ROP system request;This parameter requests to enable or disable the towed vehicle ROP system.;'DISABLE, ENABLE, NOT_AVAILABLE'; 
+;;;enum;Sensor;Chassis;Trailer.Chassis.Brake.YawControl.Status;Towed vehicle YC system request;This parameter requests to enable or disable the towed vehicle YC system.;'DISABLE, ENABLE, NOT_AVAILABLE'; 
 ;;;enum;Attribute;Chassis;Trailer.Chassis.Brake.DetectionStatus;Towed vehicle detection status;'This parameter is provided by any towed vehicle and indicates:
 — if that vehicle is able to detect an additional towed vehicle (towed vehicle detection support);
 — if an additional towed vehicle is detected (parameter “vehicle status”); and
-— which type of brake system is detected in that vehicle (parameter “brake system type”).';'NO_BRAKE_SYSTEM
-ABS_DETECTED
-EBS_DETECTED
-ERROR
-NOT_AVAILABLE'; 
-;;This signal is associated to Chassis.Axle.Liftable.AxleConfig. If the position of the axle i not in the AxleConfig then this signal must be set to NOT_AVAILABLE;enum;Sensor;Chassis;Trailer.Chassis.Axle.Pos1.Liftable.Position;Lift axle 1 position;This parameter indicates the position of the lift axle 1 or the load condition of the first tag axle. The numbering of the lift axles starts from the front axle position.;'DOWN
-UP
-ERROR
-NOT_AVAILABLE'; 
-;;;enum;Sensor;Chassis;Trailer.Chassis.Axle.Pos2.Liftable.Position;Lift axle 2 position;This parameter indicates the position of the lift axle 2 or the load condition of the second tag axle. The numbering of the lift axles starts from the front axle position.;'DOWN
-UP
-ERROR
-NOT_AVAILABLE'; 
+— which type of brake system is detected in that vehicle (parameter “brake system type”).';'NO_BRAKE_SYSTEM, ABS_DETECTED, EBS_DETECTED, ERROR, NOT_AVAILABLE'; 
+;;This signal is associated to Chassis.Axle.Liftable.AxleConfig. If the position of the axle i not in the AxleConfig then this signal must be set to NOT_AVAILABLE;enum;Sensor;Chassis;Trailer.Chassis.Axle.Pos1.Liftable.Position;Lift axle 1 position;This parameter indicates the position of the lift axle 1 or the load condition of the first tag axle. The numbering of the lift axles starts from the front axle position.;'DOWN, UP, ERROR, NOT_AVAILABLE'; 
+;;;enum;Sensor;Chassis;Trailer.Chassis.Axle.Pos2.Liftable.Position;Lift axle 2 position;This parameter indicates the position of the lift axle 2 or the load condition of the second tag axle. The numbering of the lift axles starts from the front axle position.;'DOWN, UP, ERROR, NOT_AVAILABLE'; 
 ;;;enum;Sensor;Chassis;Trailer.Chassis.Axle.Pos3.Liftable.Position;Lift axle 3 position;This parameter indicates the position of the lift axle 3 or the load condition of the third tag axle. The numbering of the lift axles starts from the front axle position.;'DOWN
 UP
 ERROR
