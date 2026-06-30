@@ -30,6 +30,9 @@ This was followed by the HIM configurator tool where an extension of the vspec f
 Building on a proposal from Volvo Group, a third generation of the tool has been developed, now named the vspecPreprocessor.
 It supports the same features as the HIM configurator but now without requiring usage of the vspec2 format.
 
+This [README](https://github.com/COVESA/commercial-vehicle-information-specifications/tree/main/spec/trees#readme)
+shows examples of how to use the vspecPreprocessor to generte trees for different vehicle types.
+
 ### Documentation
 The CVIS documentation is [here](https://covesa.github.io/commercial-vehicle-information-specifications/).
 
