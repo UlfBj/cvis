@@ -34,16 +34,25 @@ options:
 # vspecPreprocessor CLI examples
 The CV repo contains example files of both vspec trees and input configuration files as well as scope files.
 Using these it is possible to generate first the overlay file for a specific configuration, which then can be as input together with the vspec tree files to generate a tree in any format supported by the VSS-tools exporters.\
-Below follows some examples of this. The VSS-tools CLI contains a reference to the respective domain root vspec file. The default yaml output format is used.
-* Create overlay for a truck.
+Before isuing any exporter commands the vspec exporter environment must be configured. This can be done by sourcing the venv.sh script file:
+```
+$ source venv.sh startme
+```
+
+Below follows some examples of vspecPreprocessor and vspec exporter commands for different vehicle types. The yaml exporter is used.
+Please observe that for trucks the vspecPreprocessor is displaying an incorrect vspec exporter command which must be replaced with what is shown below.
+This is due to the addition of the Profile/Truck/Chassis/Chassis.vspec overlay that enables an unmodified version of the Car tree to be the source tree.
+An update of the vspecPreprocessor to reflect this is yet to be done.
+* Create overlay and YAML tree for a truck.
 ```
 $ python3 vspecPreprocessor.py -i Config/Truck/vehicleConfig-truck.json -o Config/Truck/truck.vspec -s Config/Truck/configScope.json -v Vehicle/Truck/TruckSignalSpecification.vspec
 
 Overlay configuration saved to Config/Truck/truck.vspec
+!!! The exporter command that the vspecPreprocessor displays is incorrect, it must be replaced by the command shown below!!!
 
-Exporter command: vspec export yaml -u Vehicle/Truck/units.yaml -q Vehicle/Truck/quantities.yaml -l Config/Truck/truck.vspec -s Vehicle/Truck/TruckSignalSpecification.vspec -o cvis.yaml
+Exporter command: vspec export yaml -u Vehicle/Car/units.yaml -q Vehicle/Car/quantities.yaml -l Profile/Truck/Chassis/Chassis.vspec -l Config/Truck/truck.vspec -s Vehicle/Car/VehicleSignalSpecification.vspec -o cvis.yaml
 ```
-* Create overlay for a separate trailer.
+* Create overlay and YAML tree for a separate trailer.
 ```
 $ python3 vspecPreprocessor.py -i Config/Trailer/vehicleConfig-separateTrailer.json -o Config/Trailer/separateTrailer.vspec -s Config/Trailer/configScope-separateTrailer.json -v Vehicle/Trailer/SeparateTrailerSignalSpecification.vspec
 
@@ -51,7 +60,7 @@ Overlay configuration saved to Config/Trailer/separateTrailer.vspec
 
 Exporter command: vspec export yaml -u Vehicle/Trailer/units.yaml -q Vehicle/Trailer/quantities.yaml -l Config/Trailer/separateTrailer.vspec -s Vehicle/Trailer/SeparateTrailerSignalSpecification.vspec -o cvis.yaml
 ```
-* Create overlay for multiple trailers in one tree.
+* Create overlay and YAML tree for multiple trailers in one tree.
 ```
 $ python3 vspecPreprocessor.py -i Config/Trailer/vehicleConfig-multipleTrailers.json -o Config/Trailer/multipleTrailers.vspec -s Config/Trailer/configScope-multipleTrailers.json -v Vehicle/Trailer/MultipleTrailersSignalSpecification.vspec
 
@@ -59,7 +68,7 @@ Overlay configuration saved to Config/Trailer/multipleTrailers.vspec
 
 Exporter command: vspec export yaml -u Vehicle/Trailer/units.yaml -q Vehicle/Trailer/quantities.yaml -l Config/Trailer/multipleTrailers.vspec -s Vehicle/Trailer/MultipleTrailersSignalSpecification.vspec -o cvis.yaml
 ```
-* Create overlay for a passenger car.
+* Create overlay and YAML tree for a passenger car.
 ```
 python3 vspecPreprocessor.py -i Config/Car/vehicleConfig.json -o Config/Car/car.vspec -s Config/Car/configScope.json -v Vehicle/Car/VehicleSignalSpecification.vspec
 
