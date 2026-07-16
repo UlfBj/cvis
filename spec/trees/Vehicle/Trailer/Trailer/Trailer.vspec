@@ -45,11 +45,3 @@ TrailerType:
   type: attribute
   allowed: ['UNDEFINED','SEMI_TRAILER','CENTER_AXLE_TRAILER', 'FULL_TRAILER','CONVERTER_DOLLY','LINK_TRAILER','TOWING_SEMI_TRAILER','TOWING_CENTRE_AXLE_TRAILER','TOWING_FULL_TRAILER']
   description: Type of trailer as defined in ISO 11992-2
-
-#
-# Chassis signals and attributes.
-# Includes steering, suspension, wheels, brakes, etc
-Chassis:
-  type: branch
-  description: All data concerning steering, suspension, wheels, and brakes.
-#include ../Chassis/Chassis.vspec Chassis
