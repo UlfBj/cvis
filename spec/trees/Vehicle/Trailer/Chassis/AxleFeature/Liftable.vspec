@@ -6,7 +6,26 @@
 #
 # SPDX-License-Identifier: MPL-2.0
 
+Count:
+  datatype: uint8
+  type: attribute
+  max: 5
+  instantiate: false
+  description: Total number of liftable axles.
+
+AxleConfig:
+  datatype: uint8[]
+  type: attribute
+  instantiate: false
+  description: Lift axle position.
+
+Position:
+  datatype: uint8
+  type: attribute
+  max: 5
+  description: Position of liftable axle.
+
 IsLifted:
   datatype: boolean
   type: sensor
-  description: True if axle is lifted.
+  description: True if axle referred to by Position is lifted.

@@ -92,25 +92,6 @@
                                 "Description": "Configures the axle feature for a specific instance to STEER."
                             },
                             {
-                                "Path": "Trailer.Chassis.Axle.X2.Liftable",
-                                "Directive": "  delete: yes"
-                            },
-                            {
-                                "Path": "Trailer.Chassis.Axle.X2.Driving",
-                                "Directive": "  delete: yes"
-                            }
-                        ],
-                        "LIFT": [
-                            {
-                                "Path": "Trailer.Chassis.Axle.X2.Steerable",
-                                "Directive": "  delete: yes",
-                                "Description": "Configures the axle feature for a specific instance to LIFT."
-                            },
-                            {
-                                "Path": "Trailer.Chassis.Axle.X2.Liftable",
-                                "Directive": "  delete: no"
-                            },
-                            {
                                 "Path": "Trailer.Chassis.Axle.X2.Driving",
                                 "Directive": "  delete: yes"
                             }
@@ -122,23 +103,15 @@
                                 "Description": "Configures the axle feature for a specific instance to DRIVE."
                             },
                             {
-                                "Path": "Trailer.Chassis.Axle.X2.Liftable",
-                                "Directive": "  delete: yes"
-                            },
-                            {
                                 "Path": "Trailer.Chassis.Axle.X2.Driving",
                                 "Directive": "  delete: no"
                             }
                         ],
-                        "STEER+LIFT": [
+                        "NONE": [
                             {
                                 "Path": "Trailer.Chassis.Axle.X2.Steerable",
-                                "Directive": "  delete: no",
+                                "Directive": "  delete: yes",
                                 "Description": "Configures the axle feature for a specific instance to DRIVE."
-                            },
-                            {
-                                "Path": "Trailer.Chassis.Axle.X2.Liftable",
-                                "Directive": "  delete: no"
                             },
                             {
                                 "Path": "Trailer.Chassis.Axle.X2.Driving",

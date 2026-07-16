@@ -12,6 +12,7 @@
 
 AxleCount:
   datatype: uint8
+  max: 15
   type: attribute
   description: Number of Axles on the trailer 
 
@@ -25,9 +26,9 @@ AxlesConfig:
 # Axle definition
 #
 Axle:
-  instances: Axle[1,15]
+  instances: Row[1,15]
   type: branch
-  description: Axle signals
+  description: Axle branches, max 15.
 
 #include Axle.vspec Axle
 
@@ -36,6 +37,8 @@ Axle:
 #
 Axle.Liftable:
   type: branch
+  instances: Pos[1,5]
+  instantiate: false
   description: Axle liftable features
 
 #include AxleFeature/Liftable.vspec Axle.Liftable
@@ -45,6 +48,7 @@ Axle.Liftable:
 #
 Axle.Steerable:
   type: branch
+#  instantiate: false
   description: Axle steerable features
 
 #include AxleFeature/Steerable.vspec Axle.Steerable
@@ -54,6 +58,7 @@ Axle.Steerable:
 #
 Axle.Driving:
   type: branch
+#  instantiate: false
   description: Axle driving features
 
 #include AxleFeature/Driving.vspec Axle.Driving

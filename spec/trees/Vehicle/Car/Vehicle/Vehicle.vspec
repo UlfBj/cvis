@@ -54,6 +54,7 @@ VehicleIdentification:
 VehicleIdentification.VIN:
   datatype: string
   type: attribute
+  default: WVWZZZ1KZEW000000
   description: 17-character Vehicle Identification Number (VIN) as defined by ISO 3779.
   pattern: ^([0-9A-HJ-NPR-Z]{3})([0-9A-HJ-NPR-Z]{6})([0-9A-HJ-NPR-Z]{4}[0-9]{4})$
 

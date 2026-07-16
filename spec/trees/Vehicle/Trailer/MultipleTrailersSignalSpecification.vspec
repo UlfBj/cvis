@@ -13,6 +13,21 @@ Trailers:
   description: High-level Trailer data.
 #include Trailer/Trailer.vspec Trailers
 
+Trailers.TrailerCount:
+  datatype: uint8
+  type: attribute
+  instantiate: false
+  description: Number of connected trailers.
+
+
+#
+# Chassis signals and attributes.
+# Includes steering, suspension, wheels, brakes, etc
+Trailers.Chassis:
+  type: branch
+  description: All data concerning steering, suspension, wheels, and brakes.
+#include Chassis/Chassis.vspec Trailers.Chassis
+
 #
 # TSS Versioning information
 #
@@ -45,9 +60,3 @@ Trailers.VersionTSS.Label:
   default: 'dev'
   description: Label to further describe the version.
   comment: COVESA TSS project typically use dev for latest master, and empty string for released versions.
-
-Trailers.TrailerCount:
-  datatype: uint8
-  type: attribute
-  instantiate: false
-  description: Number of connected trailers.
