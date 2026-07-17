@@ -5,13 +5,23 @@ chapter: true
 ---
 
 # The trailer tree
-The vspec trailer tree is a super tree that contains signal definitions for a large set of different trailer models.
-The HIM configurator is then used to create a signal tee for a specific trailer variant.
+Two variants of trailer trees are available.\
+One variant where a scenario with a truck pulling multiple trailers is represented by one tree containing all the trailers,
+with each trailer on a separate branch of the tree.\
+The other variant where the same scenario is represented by multiple trees, one tree per trailer.
 
-The different variants that are present in the vspec files are:
-* Flatbed trailer: This trailer type has an open flat bed cargo unit.
-* Box trailer: This trailer type has a cargo unit that is covered by walls and a roof.
-* Tanker trailer: This trailer type has a cargo unit that is specicialized for carrying liquid cargos.
-* Freezer trailer: This trailer type has a cargo unit that is specicialized for carrying cargos that require cooling.
-* Specialized trailer: This trailer type has a cargo unit that does not match with any of the other types...
+## Trailer types
+The vspec trailer tree is a super tree that contains signal definitions for a large set of different trailer types.
+The vspecPreprocessor can then be used to configure it for a specific trailer type and model.
 
+An initial list of trailer types that are planned to be supported by the vspec files are:
+* SEMI_TRAILER
+* CENTER_AXLE_TRAILER
+* FULL_TRAILER
+* CONVERTER_DOLLY
+* LINK_TRAILER
+* TOWING_SEMI_TRAILER
+* TOWING_CENTRE_AXLE_TRAILER
+* TOWING_FULL_TRAILER
+
+Further trailer types are planned to be added to the list.

@@ -51,7 +51,7 @@
         {
             "variants": [
                 {
-                    "EngineType": "EV"
+                    "EngineType": "ICE"
                 }
             ]
         },
@@ -64,7 +64,7 @@
                     "AxleFeature": ["LIFT", "Row2"]
                 },
                 {
-                    "AxleFeature": ["STEER", "Row3"]
+                    "AxleFeature": ["DRIVE", "Row3"]
                 }
             ]
         },
