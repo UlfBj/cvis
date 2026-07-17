@@ -5,8 +5,8 @@
                 {
                     "Axle": [
                         [
-                            "Axle10",
-                            "Axle12"
+                            "Row10",
+                            "Row12"
                         ],
                         [
                             [
@@ -14,8 +14,10 @@
                                 "Pos13"
                             ],
                             [
+                                "Pos3",
                                 "Pos4",
-                                "Pos12"
+                                "Pos12",
+                                "Pos13"
                             ]
                         ]
                     ]
@@ -32,10 +34,10 @@
         {
             "instance-variants": [
                 {
-                    "AxleFeature": ["LIFT", "Axle10"]
+                    "AxleFeature": ["NONE", "Row10"]
                 },
                 {
-                    "AxleFeature": ["STEER", "Axle12"]
+                    "AxleFeature": ["STEER", "Row12"]
                 }
             ]
         }
