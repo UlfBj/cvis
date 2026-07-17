@@ -22,9 +22,9 @@
                 {
                     "Axle": [
                         [
-                            "Axle1",
-                            "Axle2",
-                            "Axle3"
+                            "Row1",
+                            "Row2",
+                            "Row3"
                         ],
                         [
                             [
@@ -58,14 +58,20 @@
         {
             "instance-variants": [
                 {
-                    "AxleFeature": ["STEER", "Axle1"]
+                    "AxleFeature": ["STEER", "Row1"]
                 },
                 {
-                    "AxleFeature": ["LIFT", "Axle2"]
+                    "AxleFeature": ["LIFT", "Row2"]
                 },
                 {
-                    "AxleFeature": ["STEER", "Axle3"]
+                    "AxleFeature": ["STEER", "Row3"]
                 }
+            ]
+        },
+        {
+            "overlays": [
+                "Config/Truck/Overlays/Chassis.vspec",
+                "Config/Truck/Overlays/Default.vspec"
             ]
         }
     ]
